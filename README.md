@@ -37,6 +37,10 @@ Ice-Breaker is a simple yet powerful tool designed to break the ice in any socia
 
 To get information about a person, run the following command in your terminal:
 
+### Set Environment
+
+create .env file using .env.example as a guide
+
 ```bash
 pnpm ice-break --name "Name of the person"
 ```
