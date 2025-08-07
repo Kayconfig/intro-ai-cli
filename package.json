@@ -1,0 +1,30 @@
+{
+  "name": "ice_breaker",
+  "version": "1.0.0",
+  "description": "Ice breaker receives a person's name and performs a web scan to get the person's summary and fun facts ",
+  "scripts": {
+    "test": "jest --forceExit",
+    "dev": "ts-node src/index.ts",
+    "ice-break": "tsc; node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Kayode Odole",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^0.3.66",
+    "@langchain/ollama": "^0.2.3",
+    "@langchain/tavily": "^0.1.5",
+    "@types/node": "^24.2.0",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.1",
+    "jest": "^30.0.5",
+    "langchain": "^0.3.30",
+    "ts-jest": "^29.4.1",
+    "zod": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
