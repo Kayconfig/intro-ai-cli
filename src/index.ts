@@ -1,7 +1,6 @@
 import { config } from 'dotenv';
 import { program } from 'commander';
 import { lookupLinkedInUrl } from './agents/linkedin-lookup-agent';
-import { stripThinkTag } from './utils/thinking-agent-response';
 
 config();
 
@@ -17,9 +16,7 @@ program
       return;
     }
 
-    const personInfo = await lookupLinkedInUrl(options.name).then((response) =>
-      stripThinkTag(response)
-    );
+    const personInfo = await lookupLinkedInUrl(options.name);
     console.log(personInfo);
   });
 

@@ -1,6 +1,9 @@
 # Ice-Breaker CLI
 
-This project is a command-line interface (CLI) application that helps you get to know people better by providing a quick summary and three fun facts about them.
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
+This project is a command-line interface (CLI) application built with **NodeJs**, **LangChainJs**, **Tavily** that helps you get to know people better by providing a quick summary and three fun facts about them via LinkedIn.
 
 ## Description
 
@@ -53,10 +56,28 @@ pnpm ice-break --name "Elon Musk"
 
 The application will then output the summary and three fun facts about the person you specified.
 
+## 📌 Why This Project?
+
+This project demonstrates:
+
+📌 Why This Project?
+
+This project demonstrates:
+
+- ✅ CLI conversation with Large Language Model using NodeJs
+- ✅ Agentic AI
+- ✅ Tool calling
+- ✅ Utilizing third party service like Tavily
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+For major changes, please open an issue first to discuss what you would like to change.
+
 ## Author
 
 - **Kayode Odole**
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE) — feel free to use it.

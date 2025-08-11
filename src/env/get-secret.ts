@@ -5,3 +5,7 @@ export function getSecretOrThrow(key: string): string {
   }
   return value;
 }
+
+export function getSecret(key: string): string | undefined {
+  return process.env[key];
+}

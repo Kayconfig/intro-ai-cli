@@ -4,7 +4,9 @@ import { AIMessageChunk, BaseMessage } from '@langchain/core/messages';
 import { SYSTEM_PROMPT_FOR_NAME_VALIDATION } from './constants';
 import { tool } from '@langchain/core/tools';
 import { getOllamaModel } from '../../models/ollama-model';
-import { RunnableLambda } from '@langchain/core/runnables';
+import { stripThinkTag } from '../../utils/thinking-agent-response';
+import { getSecret } from '../../env/get-secret';
+import { envKeys } from '../../env/constants';
 
 export interface ValidateProvidedNameLLM {
   invoke: (messages: Array<BaseMessage>) => Promise<AIMessageChunk>;
@@ -22,24 +24,22 @@ export async function validateProvidedName(
 ): Promise<boolean> {
   const sysMsg = createSystemMessage(SYSTEM_PROMPT_FOR_NAME_VALIDATION);
   const aiMsg = await llm.invoke([sysMsg, createHumanMessage(name)]);
-
-  if (aiMsg.content.toLocaleString().toLowerCase() == 'yes') {
+  const content = stripThinkTag(aiMsg.content.toLocaleString().toLowerCase());
+  if (content == 'yes') {
     return true;
   }
   return false;
 }
 
-async function validateProvidedNameWithOllama({ name }: { name: string }) {
-  const llm = getOllamaModel();
-  return validateProvidedName(name, llm);
+async function validateProvidedNameWithOllama(name: string) {
+  const nameValidatorModel = getSecret(envKeys.NAME_VALIDATOR_MODEL_NAME);
+  const llm = getOllamaModel(nameValidatorModel);
+  return JSON.stringify(await validateProvidedName(name, llm));
 }
 
 export function createNameValidatorTool() {
-  const validateProvidedNameRunable = RunnableLambda.from(
-    validateProvidedNameWithOllama
-  );
-  return tool(validateProvidedNameRunable.invoke, {
-    name: 'validate provided name',
+  return tool(validateProvidedNameWithOllama, {
+    name: 'validate_provided_name',
     description:
       'useful for checking if a name is a valid name or not, returns a boolean  `true` or `false`',
   });

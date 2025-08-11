@@ -1,3 +1,3 @@
 export function stripThinkTag(input: string): string {
-  return input.replaceAll(/<think>*?<\/think>/g, '').trim();
+  return input.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 }
