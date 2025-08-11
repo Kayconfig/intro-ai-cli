@@ -7,7 +7,7 @@ This project is a command-line interface (CLI) application built with **NodeJs**
 
 ## Description
 
-Ice-Breaker is a simple yet powerful tool designed to break the ice in any social or professional setting. Whether you're meeting a new team member, preparing for a networking event, or just curious about a public figure, this app provides you with a concise summary and interesting tidbits to spark a conversation. The entire experience is handled through your terminal, making it a lightweight and fast tool for developers and command-line enthusiasts.
+Ice-Breaker is a simple yet powerful AI tool designed to break the ice in any social (only linkedIn is integrated for now) or professional setting. Whether you're meeting a new team member, preparing for a networking event, or just curious about a public figure, this app provides you with a concise summary and interesting tidbits to spark a conversation. The entire experience is handled through your terminal, making it a lightweight and fast tool for developers and command-line enthusiasts.
 
 ## Features
 
